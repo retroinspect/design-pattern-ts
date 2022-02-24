@@ -1,15 +1,24 @@
 import { CheesePizza, GreekPizza, PepperoniPizza, Pizza, VeggiePizza } from "./pizza/Pizza"
-import { SimplePizzaFactory } from "./SimplePizzaFactory"
+import { SimplePizzaFactory } from "./factory/SimplePizzaFactory"
 
-class PizzaStore {
+export class PizzaStore {
+    factory: SimplePizzaFactory
+
+    constructor(factory: SimplePizzaFactory) {
+        this.factory = factory
+    }
+
     orderPizza(type: string): Pizza {
-        const factory: SimplePizzaFactory = new SimplePizzaFactory()
-        const pizza: Pizza = factory.createPizza(type)
+        const pizza: Pizza = this.factory.createPizza(type)
         pizza.prepare()
         pizza.bake()
         pizza.cut()
         pizza.box()
         return pizza
     }
+}
+
+export class NYPizzaStore {
+
 }
 
