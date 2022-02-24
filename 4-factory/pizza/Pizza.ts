@@ -1,95 +1,135 @@
 export abstract class Pizza {
-    abstract prepare()
-    bake() {}
-    cut() {}
-    box() {}
+    name: string
+    dough: string
+    sauce: string
+    toppings: string[] = []
+
+    prepare() {
+        console.log('Preparing ' + this.name)
+        console.log('Tossing dough...')
+        console.log('Adding sauce...')
+        console.log('Adding toppings...')
+        for (let i = 0; i < this.toppings.length; i++) {
+            console.log('   ' + this.toppings[i])
+        }
+    }
+    bake() {
+        console.log('Bake for 25 minutes at 250')
+    }
+    cut() {
+        console.log('Cutting the pizza into diagonal slices')
+    }
+    box() {
+        console.log('Place pizza in official PizzaStore box')
+    }
+
+    getName() {
+        return this.name
+    }
 }
 
 export class CheesePizza extends Pizza {
-    prepare() {}
+    prepare() { }
 }
 
 export class GreekPizza extends Pizza {
-    prepare() {}
+    prepare() { }
 
 }
 
 export class PepperoniPizza extends Pizza {
-    prepare() {}
+    prepare() { }
 
 }
 
 export class ClamPizza extends Pizza {
-    prepare() {}
+    prepare() { }
 
 }
 
 export class VeggiePizza extends Pizza {
-    prepare() {}
+    prepare() { }
 }
 
 
 export class NYCheesePizza extends Pizza {
-    prepare() {}
+    constructor() {
+        super()
+        this.name = "NY Style Sauce and Chesse Pizza"
+        this.dough = "Thin Crust Dough"
+        this.sauce = "Marinara Sauce"
+        this.toppings.push('Grated Reggiano Cheese')
+    }
 }
 
 export class NYGreekPizza extends Pizza {
-    prepare() {}
+    prepare() { }
 
 }
 
 export class NYPepperoniPizza extends Pizza {
-    prepare() {}
+    prepare() { }
 
 }
 
 export class NYClamPizza extends Pizza {
-    prepare() {}
+    prepare() { }
 
 }
 
 export class NYVeggiePizza extends Pizza {
-    prepare() {}
+    prepare() { }
 }
 
 export class ChicagoCheesePizza extends Pizza {
-    prepare() {}
+    constructor() {
+        super()
+        this.name = "Chicago Style Deep Dish Chesse Pizza"
+        this.dough = "Extra Thick Crust Dough"
+        this.sauce = "Plum Tomato Sauce"
+
+        this.toppings.push('Shredded Mozzarella Cheese')
+    }
+
+    cut() {
+        console.log('Cutting the pizza into square slices')
+    }
 }
 
 export class ChicagoGreekPizza extends Pizza {
-    prepare() {}
+    prepare() { }
 
 }
 
 export class ChicagoPepperoniPizza extends Pizza {
-    prepare() {}
+    prepare() { }
 
 }
 
 export class ChicagoClamPizza extends Pizza {
-    prepare() {}
+    prepare() { }
 
 }
 
 export class ChicagoVeggiePizza extends Pizza {
-    prepare() {}
+    prepare() { }
 }
 
-export class  CaliforniaCheesePizza extends Pizza {
-    prepare() {}
+export class CaliforniaCheesePizza extends Pizza {
+    prepare() { }
 }
 
 
 export class CaliforniaPepperoniPizza extends Pizza {
-    prepare() {}
+    prepare() { }
 
 }
 
 export class CaliforniaClamPizza extends Pizza {
-    prepare() {}
+    prepare() { }
 
 }
 
 export class CaliforniaVeggiePizza extends Pizza {
-    prepare() {}
+    prepare() { }
 }
