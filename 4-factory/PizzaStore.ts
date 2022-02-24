@@ -1,18 +1,10 @@
 import { CheesePizza, GreekPizza, PepperoniPizza, Pizza, VeggiePizza } from "./pizza/Pizza"
+import { SimplePizzaFactory } from "./SimplePizzaFactory"
 
 class PizzaStore {
     orderPizza(type: string): Pizza {
-        let pizza: Pizza = {} as Pizza
-        if (type === "cheese") {
-            pizza = new CheesePizza()
-        // } else if (type === "greek") {
-        //     pizza = new GreekPizza()
-        } else if (type === "pepperoni") {
-            pizza = new PepperoniPizza()
-        } else if (type === "veggie") {
-            pizza = new VeggiePizza()
-        }
-
+        const factory: SimplePizzaFactory = new SimplePizzaFactory()
+        const pizza: Pizza = factory.createPizza(type)
         pizza.prepare()
         pizza.bake()
         pizza.cut()
