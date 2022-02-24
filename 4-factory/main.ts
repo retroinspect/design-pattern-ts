@@ -1,9 +1,7 @@
-import { ChicagoPizzaFactory } from "./factory/ChicagoPizzaFactory";
-import { NYPizzaFactory } from "./factory/NYPizzaFactory";
-import { PizzaStore } from "./PizzaStore";
+import { CaliforniaPizzaStore } from "./CaliforniaPizzaStore";
+import { ChicagoPizzaStore } from "./ChicagoPizzaStore";
+import { NYPizzaStore } from "./NYPizzaStore";
 
-const nyFactory = new NYPizzaFactory()
-const nyStore = new PizzaStore(nyFactory)
-
-const chicagoFactory = new ChicagoPizzaFactory()
-const chicagoStore = new PizzaStore(chicagoFactory)
+const nyStore = new NYPizzaStore()
+const chicagoStore = new ChicagoPizzaStore()
+const californiaStore = new CaliforniaPizzaStore()

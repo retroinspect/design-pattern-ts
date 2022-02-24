@@ -74,3 +74,22 @@ export class ChicagoClamPizza extends Pizza {
 export class ChicagoVeggiePizza extends Pizza {
     prepare() {}
 }
+
+export class  CaliforniaCheesePizza extends Pizza {
+    prepare() {}
+}
+
+
+export class CaliforniaPepperoniPizza extends Pizza {
+    prepare() {}
+
+}
+
+export class CaliforniaClamPizza extends Pizza {
+    prepare() {}
+
+}
+
+export class CaliforniaVeggiePizza extends Pizza {
+    prepare() {}
+}
