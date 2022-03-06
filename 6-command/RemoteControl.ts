@@ -5,6 +5,7 @@ import { StringBuffer } from "./StringBuffer";
 export class RemoteControl {
     onCommands: Command[]
     offCommands: Command[]
+    undoCommand: Command
 
     constructor() {
         this.onCommands = []
@@ -14,6 +15,7 @@ export class RemoteControl {
             this.onCommands.push(new NoCommand())
             this.offCommands.push(new NoCommand())
         }
+        this.undoCommand = new NoCommand()
     }
 
     setCommand(slot: number, onCommand: Command, offCommand: Command) {
@@ -23,10 +25,16 @@ export class RemoteControl {
 
     onButtonWasPushed(slot: number) {
         this.onCommands[slot].execute()
+        this.undoCommand = this.onCommands[slot]
     }
 
     offButtonWasPushed(slot: number) {
         this.offCommands[slot].execute()
+        this.undoCommand = this.offCommands[slot]
+    }
+
+    undoButtonWasPushed() {
+        this.undoCommand.undo()
     }
 
     toString(): string {
@@ -37,6 +45,9 @@ export class RemoteControl {
             const offClassName = this.offCommands[i].constructor.prototype.constructor.name
             stringBuff.append(`[slot ${i}] ${onClassName} ${offClassName}\n`)
         }
+
+        const undoClassName = this.undoCommand.constructor.prototype.constructor.name
+        stringBuff.append(`[undo] ${undoClassName}`)
 
         return stringBuff.toString()
     }

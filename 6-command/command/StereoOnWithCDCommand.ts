@@ -13,4 +13,8 @@ export class StereoOnWithCDCommand implements Command {
         this.stereo.setCd()
         this.stereo.setVolume(11)
     }
+
+    undo(): void {
+        this.stereo.off()
+    }
 }

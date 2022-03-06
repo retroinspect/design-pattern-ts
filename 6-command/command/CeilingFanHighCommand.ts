@@ -1,7 +1,7 @@
 import { CeilingFan } from "../device/CeilingFan";
 import { Command } from "./Command"
 
-export class CeilingFanOffCommand implements Command {
+export class CeilingFanHighCommand implements Command {
     ceilingFan: CeilingFan // Receiver
     prevSpeed: number
 
@@ -11,10 +11,10 @@ export class CeilingFanOffCommand implements Command {
 
     execute(): void {
         this.prevSpeed = this.ceilingFan.getSpeed()
-        this.ceilingFan.off()
+        this.ceilingFan.high()
     }
 
-    undo(): void {
+    undo(): void {        
         if (this.prevSpeed === CeilingFan.HIGH) {
             this.ceilingFan.high()
         } else if (this.prevSpeed === CeilingFan.MEDIUM) {
@@ -25,4 +25,5 @@ export class CeilingFanOffCommand implements Command {
             this.ceilingFan.off()
         }
     }
+
 }

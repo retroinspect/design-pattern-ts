@@ -1,40 +1,42 @@
 export class CeilingFan {
 	location: string = ""
-	level: number
-	static HIGH = 2
-	static MEDIUM = 1
-	static LOW = 0
+	speed: number
+	static HIGH = 3
+	static MEDIUM = 2
+	static LOW = 1
+	static OFF = 0
  
 	constructor(location: string) {
 		this.location = location
+		this.speed = CeilingFan.OFF
 	}
   
 	high() {
 		// turns the ceiling fan on to high
-		this.level = CeilingFan.HIGH
+		this.speed = CeilingFan.HIGH
 		console.log(this.location + " ceiling fan is on high")
  
 	} 
 
 	medium() {
 		// turns the ceiling fan on to medium
-		this.level = CeilingFan.MEDIUM
+		this.speed = CeilingFan.MEDIUM
 		console.log(this.location + " ceiling fan is on medium")
 	}
 
 	low() {
 		// turns the ceiling fan on to low
-		this.level = CeilingFan.LOW
+		this.speed = CeilingFan.LOW
 		console.log(this.location + " ceiling fan is on low")
 	}
  
 	off() {
 		// turns the ceiling fan off
-		this.level = 0
+		this.speed = CeilingFan.OFF
 		console.log(this.location + " ceiling fan is off")
 	}
  
 	getSpeed() {
-		return this.level
+		return this.speed
 	}
 }

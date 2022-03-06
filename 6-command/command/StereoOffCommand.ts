@@ -11,4 +11,11 @@ export class StereoOffCommand implements Command {
     execute(): void {
         this.stereo.off()
     }
+
+    undo(): void {
+        this.stereo.on()
+        this.stereo.setCd()
+        this.stereo.setVolume(11)
+    }
+
 }
